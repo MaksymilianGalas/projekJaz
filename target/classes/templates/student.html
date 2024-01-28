@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet" th:href="@{style.css}"/>
+</head>
+<body>
+
+<table>
+    <tr th:each="student : ${students}">
+        <td>
+            <a>
+                Student: <span th:text="${student.name}"></span>
+            </a>
+        </td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.phoneNumber}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
