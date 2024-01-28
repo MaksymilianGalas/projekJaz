@@ -23,5 +23,6 @@ public class Assignment {
     private int grade;
 
     @ManyToOne
+    @JoinColumn(name = "student_id")
     private Student student;
 }

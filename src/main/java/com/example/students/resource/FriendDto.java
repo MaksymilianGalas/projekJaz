@@ -1,15 +1,16 @@
 package com.example.students.resource;
 
+import com.example.students.data.Friends;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NonNull;
+import lombok.*;
 
 import java.util.UUID;
 
 @Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class FriendDto {
 
     @NonNull
@@ -21,6 +22,5 @@ public class FriendDto {
     private String phoneNumber;
     private String address;
 
-    public FriendDto(UUID id, String name, String email) {
-    }
+
 }

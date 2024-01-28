@@ -10,7 +10,7 @@ import java.util.UUID;
 @Setter
 @Getter
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class Friends {
 
     @Id

@@ -21,7 +21,6 @@ public class FriendsService {
 
 
     private final StudentRepository studentRepository;
-    private final StudentMapper studentMapper;
     private final FriendMapper friendMapper;
     private final FriendsRepository friendsRepository;
 
@@ -48,6 +47,12 @@ public class FriendsService {
                 .collect(Collectors.toList());
     }
 
+    public List<FriendDto> getAllFriends() {
+        return friendsRepository.findAll()
+                .stream()
+                .map(friendMapper::toDto)
+                .collect(Collectors.toList());
+    }
     public List<Friends> findAssignmentsByStudentId(Assignment assignment) {
         List<Friends> assignments = friendsRepository.findAssignmentsByAssignment(assignment);
         if (assignments.isEmpty()) {

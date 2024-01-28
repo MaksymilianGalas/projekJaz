@@ -1,9 +1,9 @@
 package com.example.students.front;
 
+import com.example.students.data.Assignment;
 import com.example.students.data.Lecture;
 import com.example.students.resource.CreateFriend;
 import com.example.students.resource.CreateStudent;
-import com.example.students.resource.StudentDto;
 import com.example.students.service.FriendsService;
 import com.example.students.service.LectureService;
 import com.example.students.service.StudentService;
@@ -24,7 +24,7 @@ public class PageController {
     private final StudentService studentService;
     @GetMapping
     public String getStudentsPage(Model model) {
-        var students = studentService.getAll();
+        var students = studentService.getAllStudents();
         model.addAttribute("students", students);
         return "index";
     }
@@ -47,18 +47,22 @@ public class PageController {
     }
 
     @GetMapping("/student/show")
-    public String searchAllFriend(Model model) {
-        var students = studentService.getAll();
+    public String searchAllStudents(Model model) {
+        var students = studentService.getAllStudents();
         model.addAttribute("students", students);
         return "student";
     }
     @GetMapping("/friend/show")
-    public String searchAllLecture(Model model) {
-        var students = studentService.getAll();
-        model.addAttribute("students", students);
-        return "index";
+    public String searchAllFriends(Model model) {
+        var friends = friendsService.getAllFriends();
+        model.addAttribute("friends", friends);
+        return "friend";
     }
-
+    @PostMapping("/student/addAssignment")
+    public String addAssignmentToStudent(@RequestParam UUID studentId, @RequestBody Assignment assignment) {
+        studentService.addAssignmentToStudent(studentId, assignment);
+        return "redirect:/api/student/show";
+    }
 
 
 }

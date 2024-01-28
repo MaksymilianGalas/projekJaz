@@ -6,6 +6,7 @@ import com.example.students.exception.ResourceNotFoundException;
 import com.example.students.mappery.LectureMapper;
 import com.example.students.resource.LectureDto;
 import com.example.students.resource.LectureResource;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,4 +43,7 @@ public class LectureService {
         lectureRepository.save(existingLecture);
         return existingLecture;
     }
+
+
+
 }

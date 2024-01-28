@@ -9,6 +9,7 @@ import com.example.students.resource.CreateFriend;
 import com.example.students.resource.CreateStudent;
 import com.example.students.resource.FriendDto;
 import com.example.students.resource.StudentDto;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 public class StudentService {
 
     private final StudentRepository studentRepository;
+    private final FriendsRepository friendsRepository;
     private final StudentMapper studentMapper;
     private final FriendMapper friendMapper;
     private final WebClient webClient;
@@ -87,7 +89,7 @@ public class StudentService {
         return studentToSave;
     }
 
-    public List<StudentDto> getAll() {
+    public List<StudentDto> getAllStudents() {
         return studentRepository.findAll()
                 .stream()
                 .map(studentMapper::toDto)
@@ -100,5 +102,14 @@ public class StudentService {
                 .bodyValue(studentDto)
                 .retrieve()
                 .toBodilessEntity();
+    }
+
+    @Transactional
+    public void addAssignmentToStudent(UUID studentId, Assignment assignment) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new EntityNotFoundException("Student not found with id: " + studentId));
+        student.getAssignments().add(assignment);
+
+        studentRepository.save(student);
     }
 }

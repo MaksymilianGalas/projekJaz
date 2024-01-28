@@ -17,7 +17,9 @@ public class FriendMapper {
         return new FriendDto(
                 friends.getId(),
                 friends.getName(),
-                friends.getEmail()
+                friends.getEmail(),
+                friends.getPhoneNumber(),
+                friends.getAddress()
         );
     }
 

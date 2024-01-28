@@ -2,17 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Friends</title>
+    <title>Friend</title>
     <link rel="stylesheet" th:href="@{style.css}"/>
 </head>
 <body>
 
 <table>
-    <li th:each="friend : ${friends}">
-        <a th:href="@{'/students-page/edit/' + ${student.id}}">Friend: <span th:text="${student.name + ' index:' + student.index}"></span></a>
-    </li>
+    <tr th:each="friend : ${friends}">
+        <td>
+            <a>
+                Friend:<span th:text="${friend.getName()}"></span>
+            </a>
+        </td>
+        <td th:text="${friend.email}"></td>
+        <td th:text="${friend.phoneNumber}"></td>
+    </tr>
 </table>
-
 
 </body>
 </html>
