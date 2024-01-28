@@ -23,22 +23,5 @@ public class StudentMapper {
         return new Student(createStudent.getName(), createStudent.getUnit(), createStudent.getIndex(), createStudent.getEmail(), createStudent.getPhoneNumber());
     }
 
-    public void updateEntity(Student existingStudent, CreateStudent updateStudent) {
-        if (updateStudent.getName() != null) {
-            existingStudent.setName(updateStudent.getName());
-        }
-        if (updateStudent.getUnit() != null) {
-            existingStudent.setUnit(updateStudent.getUnit());
-        }
-        if (updateStudent.getIndex() != null) {
-            existingStudent.setIndex(updateStudent.getIndex());
-        }
-        if (updateStudent.getEmail() != null) {
-            existingStudent.setEmail(updateStudent.getEmail());
-        }
-        if (updateStudent.getPhoneNumber() != null) {
-            existingStudent.setPhoneNumber(updateStudent.getPhoneNumber());
-        }
 
-    }
 }

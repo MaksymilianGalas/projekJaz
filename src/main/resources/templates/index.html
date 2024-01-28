@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
-    <!-- Include Bootstrap CSS (you can download it or use a CDN) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -101,7 +100,6 @@
             email: friendEmail
         };
 
-        // Make an AJAX POST request to add a friend
         $.ajax({
             type: "POST",
             url: "/api/friend/add",
@@ -124,7 +122,6 @@
             name: lectureName
         };
 
-        // Make an AJAX POST request to add a lecture
         $.ajax({
             type: "POST",
             url: "/api/lecture/add",
@@ -151,7 +148,6 @@
             unit: studentUnit
         };
 
-        // Make an AJAX POST request to add a student
         $.ajax({
             type: "POST",
             url: "/api/student/add",

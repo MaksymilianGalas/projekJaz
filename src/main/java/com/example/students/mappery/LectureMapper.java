@@ -19,7 +19,6 @@ public class LectureMapper {
     public Lecture toEntity(Lecture createLecture) {
         Lecture lecture = new Lecture();
         lecture.setName(createLecture.getName());
-        // Set other properties if needed
         return lecture;
     }
 

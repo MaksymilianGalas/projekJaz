@@ -20,18 +20,5 @@ public class AssignmentMapper {
         );
     }
 
-    public Assignment toEntity(CreateAssignment createAssignment) {
-        Assignment assignment = new Assignment();
-        assignment.setName(createAssignment.getName());
-        assignment.setDescription(createAssignment.getDescription());
-        assignment.setDueDate(createAssignment.getDueDate());
-        assignment.setWeight(createAssignment.getWeight());
-        assignment.setGrade(createAssignment.getGrade());
-        assignment.setStudent(createAssignment.getStudent());
-        
-        return assignment;
-    }
 
-    public void updateEntity(Assignment existingAssignment, AssignmentDto updateAssignment) {
-    }
 }
