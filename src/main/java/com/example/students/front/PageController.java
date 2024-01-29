@@ -4,6 +4,7 @@ import com.example.students.data.Assignment;
 import com.example.students.data.Lecture;
 import com.example.students.resource.CreateFriend;
 import com.example.students.resource.CreateStudent;
+import com.example.students.resource.StudentDto;
 import com.example.students.service.FriendsService;
 import com.example.students.service.LectureService;
 import com.example.students.service.StudentService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -57,6 +59,12 @@ public class PageController {
         var friends = friendsService.getAllFriends();
         model.addAttribute("friends", friends);
         return "friend";
+    }
+
+    @GetMapping("/student/show/json")
+    @ResponseBody
+    public List<StudentDto> searchAllStudentsJson() {
+        return studentService.getAllStudents();
     }
     @PostMapping("/student/addAssignment")
     public String addAssignmentToStudent(@RequestParam UUID studentId, @RequestBody Assignment assignment) {
